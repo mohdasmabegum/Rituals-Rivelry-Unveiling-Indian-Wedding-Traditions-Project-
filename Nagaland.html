@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nagaland Weddings</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #e8f5e9, #c8e6c9);
+            color: #1b5e20;
+            scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+        }
+
+        /* Navbar styling */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #a5d6a7;
+            padding: 15px 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar .logo {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #1b5e20;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar ul li {
+            margin: 0 10px;
+        }
+
+        .navbar ul li a {
+            color: #1b5e20;
+            text-decoration: none;
+            padding: 10px 15px;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            border-radius: 5px;
+        }
+
+        .navbar ul li a:hover {
+            background-color: #c8e6c9;
+            transform: scale(1.1);
+        }
+
+        /* About section styling */
+        .about-section {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: #e8f5e9; /* Light green */
+            margin: 20px auto;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 800px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .about-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #1b5e20;
+        }
+
+        .about-section p {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #1b5e20;
+        }
+
+        /* Slider styling */
+        .slider {
+            position: relative;
+            width: 100%;
+            max-width: 1000px;
+            margin: 20px auto;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .slides {
+            display: flex;
+            transition: transform 1s ease-in-out;
+        }
+
+        .slides img, .slides video {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .slider-buttons {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+        .slider-buttons button {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            border-radius: 50%;
+        }
+
+        .slider-buttons button:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        /* Wedding section styling */
+        .wedding-style {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: #c8e6c9; /* Light pastel green */
+            margin: 20px auto;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 800px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .wedding-style:nth-child(odd) {
+            background-color: #e8f5e9; /* Light green */
+        }
+
+        .wedding-style img {
+            width: 200px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .wedding-style h2 {
+            font-size: 2em;
+            margin-bottom: 10px;
+            color: #1b5e20;
+        }
+
+        .wedding-style p {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #1b5e20;
+        }
+
+        /* Contact section styling */
+        .contact-section {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: #a5d6a7; /* Light pastel green */
+            margin: 20px auto;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 800px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .contact-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #1b5e20;
+        }
+
+        .contact-section p {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #1b5e20;
+        }
+
+        .contact-section a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #1b5e20;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .contact-section a:hover {
+            background-color: #0d3b1e;
+            transform: scale(1.1);
+        }
+
+        /* Footer styling */
+        footer {
+            background-color: #1b5e20;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 30px;
+            font-size: 1em;
+        }
+
+        footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="logo">Nagaland Weddings</div>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#muslim-wedding">Naga Tribal  Wedding</a></li>
+            <li><a href="#hindu-wedding">Court  Wedding</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- About Section -->
+    <div class="about-section" id="about">
+        <h2>About Nagaland Weddings</h2><hr>  
+<p>
+<strong>Nagaland</strong> is home to a rich tapestry of tribal cultures, each with its own distinctive wedding customs. Weddings in Nagaland are vibrant community affairs, deeply rooted in tradition and marked by the active participation of family, clan, and village members. The ceremonies emphasize respect for elders, the importance of clan ties, and the celebration of unity. Traditional music, folk dances, and colorful attire are central to the festivities, and feasting plays a major role. While many Naga communities have embraced Christianity, traditional rituals and customs remain an integral part of wedding celebrations, making each event a unique blend of old and new.
+</p>
+  </div>
+
+    <!-- Slider -->
+    <div class="slider" id="gallery">
+        <div class="slides">
+            <video src="videos/Nagaland.mp4" autoplay muted loop playsinline></video>
+            <img src="images1\nagaland muslim.jpg" alt="Naga Tribal Wedding">
+            <img src="images1\naga hindu slid.png" alt="Court  Wedding">
+            <img src="images1\christian (17).jpg" alt="Christian Wedding">
+        </div>
+        <div class="slider-buttons">
+            <button onclick="prevSlide()">&#10094;</button>
+            <button onclick="nextSlide()">&#10095;</button>
+        </div>
+    </div>
+
+    <!-- Wedding Sections -->
+    <div class="wedding-style" id="muslim-wedding">
+        <img src="images1\nagaland muslim.jpg" alt=" Naga Tribal Wedding">
+        <h2>Traditional Nagaland Muslim Wedding</h2><hr> 
+<p>
+<strong>Matchmaking and Family Consent:</strong> The process begins with both families discussing and agreeing on the marriage, often with the involvement of clan elders.<br>
+<strong>Engagement:</strong> A formal engagement ceremony is held, where gifts such as rice beer, meat, and traditional items are exchanged between the families.<br>
+<strong>Pre-Wedding Preparations:</strong> Both families and the community prepare for the wedding, with relatives and neighbors helping with arrangements, decorations, and food.<br>
+<strong>Main Wedding Ceremony:</strong> The ceremony is usually held at the bride’s home or a community space. Rituals include prayers, blessings from elders, and the exchange of symbolic gifts. The bride and groom wear traditional Naga attire, adorned with beads and ornaments.<br>
+<strong>Feasting and Folk Dance:</strong> After the ceremony, a grand feast is organized for the entire village, featuring local delicacies. Traditional music and folk dances are performed, celebrating the new union.<br>
+<strong>Post-Wedding Rituals:</strong> The bride is welcomed into the groom’s family, and further blessings and celebrations may continue for several days, strengthening community bonds.
+</p>
+   </div>
+
+    <div class="wedding-style" id="hindu-wedding">
+        <img src="images1\naga hindu.jpg" alt="Court  Wedding">
+        <h2>Traditional Nagaland Court  Wedding</h2><hr>
+<p>
+<strong>Notice of Intended Marriage:</strong> The couple submits a formal notice to the local marriage registrar.<br>
+<strong>Verification of Documents:</strong> All required documents are checked by officials.<br>
+<strong>Declaration by the Couple:</strong> The couple and witnesses sign a declaration in the registrar’s office.<br>
+<strong>Marriage Solemnization:</strong> The marriage is officially solemnized in a simple ceremony.<br>
+<strong>Issuance of Marriage Certificate:</strong> The couple receives a legal certificate, recognized by the state as proof of marriage.
+</p>    </div>
+
+    <!-- Contact Section -->
+    <div class="contact-section" id="contact">
+        <h2>Contact Us</h2>
+        <p>If you have any questions or would like to learn more about Nagaland weddings, feel free to reach out to us.</p>
+        <a href="mailto:info@nagalandweddings.com">Email Us</a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Rituals and Revelry - Unveiling Indian Wedding Traditions. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            const slides = document.querySelector('.slides');
+            const totalSlides = slides.children.length;
+            if (index >= totalSlides) currentSlide = 0;
+            else if (index < 0) currentSlide = totalSlides - 1;
+            else currentSlide = index;
+            slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+        }
+    </script>
+</body>
+</html>

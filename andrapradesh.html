@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Andhra Pradesh Weddings</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #fef6e4, #f7d9c4);
+            color: #4a2c2a;
+            scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+        }
+
+        /* Navbar styling */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #f8e8dc;
+            padding: 15px 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar .logo {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #8b5e3c;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar ul li {
+            margin: 0 10px;
+        }
+
+        .navbar ul li a {
+            color: #8b5e3c;
+            text-decoration: none;
+            padding: 10px 15px;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            border-radius: 5px;
+        }
+
+        .navbar ul li a:hover {
+            background-color: #f4d3b2;
+            transform: scale(1.1);
+        }
+
+        /* About section styling */
+        .about-section {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: #fef6e4; /* Light beige */
+            margin: 20px auto;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 800px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .about-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #8b5e3c;
+        }
+
+        .about-section p {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #4a2c2a;
+        }
+
+        /* Slider styling */
+        .slider {
+            position: relative;
+            width: 100%;
+            max-width: 1000px;
+            margin: 20px auto;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            animation: slideIn 1.5s ease-in-out;
+        }
+
+        .slides {
+            display: flex;
+            transition: transform 1s ease-in-out;
+        }
+
+        .slides img, .slides video {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .slider-buttons {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+        .slider-buttons button {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            border-radius: 50%;
+        }
+
+        .slider-buttons button:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        /* Wedding section styling */
+        .wedding-style {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: #f8e8dc; /* Light pastel beige */
+            margin: 20px auto;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 800px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            animation: fadeInUp 1.5s ease-in-out;
+        }
+
+        .wedding-style:nth-child(odd) {
+            background-color: #fef6e4; /* Light beige */
+        }
+
+        .wedding-style img {
+            width: 200px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .wedding-style h2 {
+            font-size: 2em;
+            margin-bottom: 10px;
+            color: #8b5e3c;
+        }
+
+        .wedding-style p {
+        text-align: left; /* Align text to the left */
+        margin: 0 20px; /* Add some margin for spacing */
+        font-size: 1.2em;
+        line-height: 1.8;
+        color: #4a2c2a;
+    }
+
+        /* Contact section styling */
+        .contact-section {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: #f4d3b2; /* Light pastel beige */
+            margin: 20px auto;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 800px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .contact-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #8b5e3c;
+        }
+
+        .contact-section p {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #4a2c2a;
+        }
+
+        .contact-section a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #8b5e3c;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .contact-section a:hover {
+            background-color: #4a2c2a;
+            transform: scale(1.1);
+        }
+
+        /* Footer styling */
+        footer {
+            background-color: #8b5e3c;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 30px;
+            font-size: 1em;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-100%);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="logo">Andhra Pradesh Weddings</div>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#muslim-wedding">Muslim Wedding</a></li>
+            <li><a href="#hindu-wedding">Hindu Wedding</a></li>
+            <li><a href="#christian-wedding">Christian Wedding</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- About Section -->
+    <div class="about-section" id="about">
+        <h2>About Andhra Pradesh Weddings</h2>
+        <p><I>Weddings in Andhra Pradesh, whether Hindu, Muslim, or Christian, are deeply rooted in tradition and symbolize commitment, unity, and cultural heritage. Hindu weddings follow elaborate rituals like Kanyadaan and Saptapadi, emphasizing spiritual and familial bonds. Muslim weddings center around Nikah, a solemn contract between the bride and groom, witnessed by family and religious leaders. Christian weddings are marked by a church ceremony where vows are exchanged before a priest, signifying divine blessings on the union. Across all communities, weddings serve as a sacred institution that strengthens family ties, preserves customs, and fosters social harmony, making them an integral part of Andhra Pradesh’s diverse cultural landscape
+        </I></p>
+    </div>
+
+    <!-- Slider -->
+    <div class="slider" id="gallery">
+        <div class="slides">
+            <video src="videos/andhrapradesh.mp4" autoplay muted loop playsinline></video>
+            <img src="images1\muslim marriage.jpeg" alt="Muslim Wedding">
+            <img src="B:\RTP p-1 new f - Copy\Final pr 1 v-2 only pops names\images1\andra slider hindu.png" alt="Hindu Wedding">
+            <img src="images1/christian (11).jpg" alt="Christian Wedding">
+            <img src="images1/andhra tribal.jpg" alt="Tribal Wedding">
+        </div>
+        <div class="slider-buttons">
+            <button onclick="prevSlide()">&#10094;</button>
+            <button onclick="nextSlide()">&#10095;</button>
+        </div>
+    </div>
+
+    <!-- Wedding Sections -->
+    <div class="wedding-style" id="muslim-wedding">
+        <img src="images1\muslim marriage.jpeg" alt="Muslim Wedding">
+        <h2>Andhra Muslim Wedding</h2>
+        <p><b>Nikah:</b> The marriage contract is signed in the presence of witnesses.</p><hr>
+         <p><b>Mehr:</b> A mandatory gift from the groom to the bride.</p><hr>
+         <p><b>Walima:</b> A reception hosted by the groom's family to celebrate the marriage.</p><hr>
+    </div>
+
+    <div class="wedding-style" id="hindu-wedding">
+        <img src="images1\andhra pradesh hindu.avif" alt="Hindu Wedding">
+        <h2>Andhra Hindu Wedding</h2>
+        <p><b>Nischitartham:</b> The engagement ceremony where families exchange gifts and decide the wedding date.</p>
+         <hr>
+          <p><b>Pendikoothuru:</b> Similar to the Haldi ceremony, a paste of turmeric and oil is applied to the bride and groom.</p> 
+  
+            <p><b> Snathakam:</b> The groom wears a holy silver thread, symbolizing his readiness for marriage. </p>
+            
+             <hr>
+            
+             <p><b>Kashi Yatra:</b> The groom pretends to go on a pilgrimage, but is convinced to stay and marry the bride.</p> 
+            
+             <hr>
+            
+             <p><b>Mangala Snanam:</b> A sacred bath taken by the bride and groom on the wedding day. </p>
+            
+             <hr>
+            
+             <p><b>Gauri Puja and Ganesh Puja:</b> Prayers offered to Goddess Gauri and Lord Ganesh for blessings. </p>
+            
+             <hr>
+            
+             <p><b> Jeerakalla-Bellamu:</b> The couple exchanges jaggery and cumin seeds, symbolizing the sweet and spicy flavors of married life. </p>
+            <hr>
+             
+            
+            <p><b>Mangalsutra:</b> The groom ties a sacred necklace around the bride's neck.</p> 
+            
+           <hr>  
+            
+           <p><b>Saptapadi:</b> The couple takes seven steps together, making vows to each other. </p> 
+            
+             
+    </div>
+
+    <div class="wedding-style" id="christian-wedding">
+        <img src="images1\christian (8).jpg" alt="Christian Wedding">
+        <h2><b>Andhra Christian Wedding</b></h2>
+        <p><b>Church Ceremony:</b> The couple exchanges vows and rings in a church.</p><hr>
+            <p><b>Blessings:</b> The priest offers prayers and blessings.</p><hr>
+                <p><b>Reception:</b> A celebration with family and friends, including music and dance.</p><hr>
+    </div>
+    <!-- Contact Section -->
+    <div class="contact-section" id="contact">
+        <h2>Contact Us</h2>
+        <p>If you have any questions or would like to learn more about Andhra Pradesh weddings, feel free to reach out to us.</p>
+        <a href="mailto:info@andhraweddings.com">Email Us</a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Rituals and Revelry - Unveiling Indian Wedding Traditions. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            const slides = document.querySelector('.slides');
+            const totalSlides = slides.children.length;
+            if (index >= totalSlides) currentSlide = 0;
+            else if (index < 0) currentSlide = totalSlides - 1;
+            else currentSlide = index;
+            slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+        }
+    </script>
+</body>
+</html>

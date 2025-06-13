@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sikkim Weddings</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #e8f5e9, #c8e6c9);
+            color: #2e7d32;
+            scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+        }
+
+        /* Navbar styling */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #c8e6c9;
+            padding: 15px 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar .logo {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #388e3c;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar ul li {
+            margin: 0 10px;
+        }
+
+        .navbar ul li a {
+            color: #388e3c;
+            text-decoration: none;
+            padding: 10px 15px;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            border-radius: 5px;
+        }
+
+        .navbar ul li a:hover {
+            background-color: #a5d6a7;
+            transform: scale(1.1);
+        }
+
+        /* About section styling */
+        .about-section {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: #e8f5e9; /* Mint green */
+            margin: 20px auto;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 800px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .about-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #388e3c;
+        }
+
+        .about-section p {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #2e7d32;
+        }
+
+        /* Slider styling */
+        .slider {
+            position: relative;
+            width: 100%;
+            max-width: 1000px;
+            margin: 20px auto;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            animation: slideIn 1.5s ease-in-out;
+        }
+
+        .slides {
+            display: flex;
+            transition: transform 1s ease-in-out;
+        }
+
+        .slides img, .slides video {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .slider-buttons {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+        .slider-buttons button {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            border-radius: 50%;
+        }
+
+        .slider-buttons button:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        /* Wedding section styling */
+        .wedding-style {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: #c8e6c9; /* Light pastel mint green */
+            margin: 20px auto;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 800px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            animation: fadeInUp 1.5s ease-in-out;
+        }
+
+        .wedding-style:nth-child(odd) {
+            background-color: #e8f5e9; /* Mint green */
+        }
+
+        .wedding-style img {
+            width: 200px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .wedding-style h2 {
+            font-size: 2em;
+            margin-bottom: 10px;
+            color: #388e3c;
+        }
+
+        .wedding-style p {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #2e7d32;
+        }
+
+        /* Contact section styling */
+        .contact-section {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: #a5d6a7; /* Light pastel mint green */
+            margin: 20px auto;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 800px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .contact-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #388e3c;
+        }
+
+        .contact-section p {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #2e7d32;
+        }
+
+        .contact-section a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #388e3c;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .contact-section a:hover {
+            background-color: #2e7d32;
+            transform: scale(1.1);
+        }
+
+        /* Footer styling */
+        footer {
+            background-color: #388e3c;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 30px;
+            font-size: 1em;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-100%);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="logo">Sikkim Weddings</div>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#buddhist-wedding">Bhutia Wedding</a></li>
+            <li><a href="#hindu-wedding">Lepcha Wedding</a></li>
+            <li><a href="#christian-wedding">Court Wedding</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- About Section -->
+    <div class="about-section" id="about">
+        <h2>About Sikkim Weddings</h2><hr> 
+<p>
+<strong>Sikkim</strong> is celebrated for its harmonious blend of diverse cultures, including Lepcha, Bhutia, and Nepali communities, each with their own distinctive wedding customs. Weddings in Sikkim are vibrant and spiritual, marked by colorful attire, traditional music, and rituals that honor both nature and ancestral heritage. The ceremonies emphasize family unity, respect for elders, and blessings from monks or priests. Community participation, folk dances, and local cuisine are central to the festivities, making every Sikkimese wedding a joyful and meaningful celebration of the state’s multicultural identity.
+</p>
+   </div>
+
+    <!-- Slider -->
+    <div class="slider" id="gallery">
+        <div class="slides">
+            <video src="videos/sikkim.mp4" autoplay muted loop playsinline></video>
+            <img src="images1\sikkim mus slid.png" alt="Bhutia Wedding">
+            <img src="images1\sikkim hindu.jpg" alt="Lepcha Wedding">
+            <img src="images1\christian (8).jpg" alt="Court Wedding">
+        </div>
+        <div class="slider-buttons">
+            <button onclick="prevSlide()">&#10094;</button>
+            <button onclick="nextSlide()">&#10095;</button>
+        </div>
+    </div>
+
+    <!-- Wedding Sections -->
+    <div class="wedding-style" id="buddhist-wedding">
+        <img src="images1\sikkim mus slid.png" alt="Bhutia Wedding">
+        <h2>Traditional Sikkim Bhutia Wedding</h2><hr>
+<p>
+<strong>Negotiation and Consent:</strong> Families discuss the marriage and agree on the union, often with the help of community elders.<br>
+<strong>Engagement (Nyopchey):</strong> Gifts and symbolic items are exchanged between the families.<br>
+<strong>Main Wedding Ceremony:</strong> The ceremony is held at the bride’s home or a monastery, with Buddhist monks performing prayers and rituals. The couple wears traditional Bhutia attire and exchanges khadas (ceremonial scarves).<br>
+<strong>Reception and Feast:</strong> A lavish feast follows, with traditional music, dance, and local cuisine.<br>
+<strong>Post-Wedding Rituals:</strong> The bride is welcomed into the groom’s family, and the celebrations may continue for several days.
+</p>
+  </div>
+
+    <div class="wedding-style" id="hindu-wedding">
+        <img src="images1\sikkim hindu.jpg" alt="Lepcha Wedding">
+        <h2>Traditional Sikkim Lepcha Wedding</h2><hr>
+<p>
+<strong>Matchmaking and Family Consent:</strong> Elders from both families discuss and agree on the marriage, ensuring the union is accepted by the clans.<br>
+<strong>Engagement:</strong> A simple ceremony is held where gifts and symbolic items are exchanged.<br>
+<strong>Main Wedding Ceremony:</strong> The wedding is held at the bride’s home, with rituals led by a priest or village elder. The couple exchanges traditional attire and symbolic gifts, and receives blessings from elders.<br>
+<strong>Community Feast:</strong> After the ceremony, a grand feast is organized for family and friends, featuring local dishes and folk music.<br>
+<strong>Post-Wedding Rituals:</strong> The bride is welcomed into the groom’s family, and further celebrations may continue with music and dance.
+</p>
+
+    </div>
+
+    <div class="wedding-style" id="christian-wedding">
+        <img src="images1\christian (8).jpg" alt="Court Wedding">
+        <h2>Traditional Sikkim Court Wedding</h2><hr>
+<p>
+<strong>Notice of Intended Marriage:</strong> The couple submits a formal notice to the local marriage registrar.<br>
+<strong>Verification of Documents:</strong> All required documents are checked by officials.<br>
+<strong>Declaration by the Couple:</strong> The couple and witnesses sign a declaration in the registrar’s office.<br>
+<strong>Marriage Solemnization:</strong> The marriage is officially solemnized in a simple ceremony.<br>
+<strong>Issuance of Marriage Certificate:</strong> The couple receives a legal certificate, recognized by the state as proof of marriage.
+</p>    </div>
+
+    <!-- Contact Section -->
+    <div class="contact-section" id="contact">
+        <h2>Contact Us</h2>
+        <p>If you have any questions or would like to learn more about Sikkim weddings, feel free to reach out to us.</p>
+        <a href="mailto:info@sikkimweddings.com">Email Us</a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Rituals and Revelry - Unveiling Indian Wedding Traditions. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            const slides = document.querySelector('.slides');
+            const totalSlides = slides.children.length;
+            if (index >= totalSlides) currentSlide = 0;
+            else if (index < 0) currentSlide = totalSlides - 1;
+            else currentSlide = index;
+            slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+        }
+    </script>
+</body>
+</html>

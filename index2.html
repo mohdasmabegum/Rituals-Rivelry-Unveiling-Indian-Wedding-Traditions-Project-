@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to Vibrant India</title>
+  <style>
+    /* Vibrant animated background */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fbc2eb, #a18cd1);
+      background-size: 400% 400%;
+      animation: gradientAnimation 10s ease infinite;
+      color: #fff;
+      text-align: center;
+    }
+
+    @keyframes gradientAnimation {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.5rem;
+      margin-bottom: 40px;
+    }
+
+    .loading {
+      font-size: 1.2rem;
+      animation: blink 1.5s infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    .redirect-button {
+      margin-top: 20px;
+      padding: 15px 30px;
+      background-color: #ff6f61;
+      color: #fff;
+      font-size: 18px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .redirect-button:hover {
+      background-color: #c39cf3;
+    }
+  </style>
+</head>
+<body>
+  <!-- Welcome screen -->
+  <h1>Welcome to 	
+
+Rituals and Revelry - Unveiling Indian Wedding Traditions	
+</h1>
+  <p>Discover the Beauty of Wedding heritage of India.</p>
+
+  <!-- Redirecting Button -->
+  <button class="redirect-button" onclick="redirectToMap()">Let's See</button>
+
+  <script>
+
+    function redirectToMap() {
+      window.location.href = "index3.html"; // Replace with the actual map page URL
+    }
+  </script>
+</body>
+</html>

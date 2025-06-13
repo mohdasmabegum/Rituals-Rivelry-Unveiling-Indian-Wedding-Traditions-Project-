@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Madhya Pradesh Weddings</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #f3e5f5, #e1bee7);
+            color: #4a148c;
+            scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+        }
+
+        /* Navbar styling */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #e1bee7;
+            padding: 15px 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar .logo {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #6a1b9a;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar ul li {
+            margin: 0 10px;
+        }
+
+        .navbar ul li a {
+            color: #6a1b9a;
+            text-decoration: none;
+            padding: 10px 15px;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            border-radius: 5px;
+        }
+
+        .navbar ul li a:hover {
+            background-color: #ce93d8;
+            transform: scale(1.1);
+        }
+
+        /* About section styling */
+        .about-section {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: #f3e5f5; /* Light purple */
+            margin: 20px auto;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 800px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .about-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #6a1b9a;
+        }
+
+        .about-section p {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #4a148c;
+        }
+
+        /* Slider styling */
+        .slider {
+            position: relative;
+            width: 100%;
+            max-width: 1000px;
+            margin: 20px auto;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            animation: slideIn 1.5s ease-in-out;
+        }
+
+        .slides {
+            display: flex;
+            transition: transform 1s ease-in-out;
+        }
+
+        .slides img, .slides video {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .slider-buttons {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+        .slider-buttons button {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            border-radius: 50%;
+        }
+
+        .slider-buttons button:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        /* Wedding section styling */
+        .wedding-style {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: #e1bee7; /* Light pastel purple */
+            margin: 20px auto;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 800px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            animation: fadeInUp 1.5s ease-in-out;
+        }
+
+        .wedding-style:nth-child(odd) {
+            background-color: #f3e5f5; /* Light purple */
+        }
+
+        .wedding-style img {
+            width: 200px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .wedding-style h2 {
+            font-size: 2em;
+            margin-bottom: 10px;
+            color: #6a1b9a;
+        }
+
+        .wedding-style p {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #4a148c;
+        }
+
+        /* Contact section styling */
+        .contact-section {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: #ce93d8; /* Light pastel purple */
+            margin: 20px auto;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 800px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .contact-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #6a1b9a;
+        }
+
+        .contact-section p {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #4a148c;
+        }
+
+        .contact-section a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #6a1b9a;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .contact-section a:hover {
+            background-color: #4a148c;
+            transform: scale(1.1);
+        }
+
+        /* Footer styling */
+        footer {
+            background-color: #6a1b9a;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 30px;
+            font-size: 1em;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-100%);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="logo">Madhya Pradesh Weddings</div>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#muslim-wedding">Muslim Wedding</a></li>
+            <li><a href="#hindu-wedding">Hindu Wedding</a></li>
+            <li><a href="#christian-wedding">Christian Wedding</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- About Section -->
+    <div class="about-section" id="about">
+        <h2>About Madhya Pradesh Weddings</h2><hr>
+<p>
+<strong>Madhya Pradesh State</strong> is famous for its grand and vibrant wedding celebrations, where traditions are cherished and every marriage is a community affair. Weddings here are not just about uniting two individuals, but also about bringing families and neighborhoods together. The ceremonies are marked by colorful attire, elaborate rituals, traditional music, and local cuisine, reflecting the state’s rich cultural heritage. Each community within the state adds its own unique customs, making every wedding a distinct and memorable event. The state also values inclusivity, ensuring that both traditional and court marriages are recognized and celebrated.
+</p>
+    </div>
+
+    <!-- Slider -->
+    <div class="slider" id="gallery">
+        <div class="slides">
+            <video src="videos/madhyapradesh.mp4" autoplay muted loop playsinline></video>
+            <img src="images1\madhya slid muslim.png" alt="Muslim Wedding">
+            <img src="images1\madhya slider hindu.png" alt="Hindu Wedding">
+            <img src="images1\christian (26).jpg" alt="Christian Wedding">
+        </div>
+        <div class="slider-buttons">
+            <button onclick="prevSlide()">&#10094;</button>
+            <button onclick="nextSlide()">&#10095;</button>
+        </div>
+    </div>
+
+    <!-- Wedding Sections -->
+    <div class="wedding-style" id="muslim-wedding">
+        <img src="images1\madhya muslim.jpg" alt="Muslim Wedding">
+        <h2>Traditional Madhya Pradesh Muslim Wedding</h2><hr>  
+<p>
+<strong>Istikhara and Imam Zamin:</strong> Prayers are offered for guidance, and the groom’s mother ties a symbolic coin on the bride’s arm, reflecting local customs.<br>
+<strong>Mangni (Engagement):</strong> The engagement is celebrated with the exchange of gifts and sweets, following regional traditions.<br>
+<strong>Mehendi Ceremony:</strong> The bride’s hands and feet are adorned with henna, and women sing folk songs unique to the state.<br>
+<strong>Nikah (Wedding Ceremony):</strong> The marriage contract is signed in the presence of elders, with blessings and recitation of verses.<br>
+<strong>Walima (Reception):</strong> The groom’s family hosts a lavish feast, featuring traditional dishes and music.
+</p>
+  </div>
+
+    <div class="wedding-style" id="hindu-wedding">
+        <img src="images1\madhya hindu.jpg" alt="Hindu Wedding">
+        <h2>Traditional Madhya Pradesh Hindu Wedding</h2><hr> 
+<p>
+<strong>Engagement Ceremony (Roka):</strong> Families gather to formalize the relationship, exchange gifts, and begin the wedding journey.<br>
+<strong>Mehendi and Sangeet:</strong> The bride’s hands and feet are decorated with henna, and both families enjoy music and dance, often featuring local folk traditions.<br>
+<strong>Haldi Ceremony:</strong> A turmeric paste is applied to the bride and groom, believed to bring good luck and purify them before the wedding.<br>
+<strong>Main Wedding Rituals:</strong> Ceremonies such as Kanyadaan, Mangal Pheras, and Sindoor Daan are performed, often accompanied by regional songs and blessings.<br>
+<strong>Reception:</strong> The newlyweds are introduced to the community with a grand feast, showcasing the state’s traditional cuisine and performances.
+</p>
+   </div>
+
+    <div class="wedding-style" id="christian-wedding">
+        <img src="images1\christian (26).jpg" alt="Christian Wedding">
+        <h2>Traditional Madhya Pradesh Christian Wedding</h2><hr> 
+<p>
+<strong>Engagement:</strong> The couple exchanges rings in a family gathering, blending religious customs with local traditions.<br>
+<strong>Bridal Shower and Bachelor Party:</strong> Friends and family organize separate celebrations for the bride and groom, often including games and rituals unique to the state.<br>
+<strong>Wedding Ceremony in Church:</strong> The ceremony is held in a church, with the bride walking down the aisle to traditional hymns and blessings from the congregation.<br>
+<strong>Exchange of Vows and Rings:</strong> The couple makes promises and exchanges rings, symbolizing their lifelong commitment.<br>
+<strong>Reception:</strong> The event concludes with a community gathering, featuring regional dishes, music, and dance.
+</p>
+   </div>
+
+    <!-- Contact Section -->
+    <div class="contact-section" id="contact">
+        <h2>Contact Us</h2>
+        <p>If you have any questions or would like to learn more about Madhya Pradesh weddings, feel free to reach out to us.</p>
+        <a href="mailto:info@madhyapradeshweddings.com">Email Us</a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Rituals and Revelry - Unveiling Indian Wedding Traditions. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            const slides = document.querySelector('.slides');
+            const totalSlides = slides.children.length;
+            if (index >= totalSlides) currentSlide = 0;
+            else if (index < 0) currentSlide = totalSlides - 1;
+            else currentSlide = index;
+            slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+        }
+    </script>
+</body>
+</html>

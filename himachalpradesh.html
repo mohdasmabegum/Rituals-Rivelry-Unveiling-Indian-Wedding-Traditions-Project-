@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Himachal Pradesh Weddings</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #ede7f6, #d1c4e9);
+            color: #4a148c;
+            scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+        }
+
+        /* Navbar styling */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #d1c4e9;
+            padding: 15px 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar .logo {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #6a1b9a;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar ul li {
+            margin: 0 10px;
+        }
+
+        .navbar ul li a {
+            color: #6a1b9a;
+            text-decoration: none;
+            padding: 10px 15px;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            border-radius: 5px;
+        }
+
+        .navbar ul li a:hover {
+            background-color: #b39ddb;
+            transform: scale(1.1);
+        }
+
+        /* About section styling */
+        .about-section {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: #ede7f6; /* Light lavender */
+            margin: 20px auto;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 800px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .about-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #6a1b9a;
+        }
+
+        .about-section p {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #4a148c;
+        }
+
+        /* Slider styling */
+        .slider {
+            position: relative;
+            width: 100%;
+            max-width: 1000px;
+            margin: 20px auto;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            animation: slideIn 1.5s ease-in-out;
+        }
+
+        .slides {
+            display: flex;
+            transition: transform 1s ease-in-out;
+        }
+
+        .slides img, .slides video {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .slider-buttons {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+        .slider-buttons button {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            border-radius: 50%;
+        }
+
+        .slider-buttons button:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        /* Wedding section styling */
+        .wedding-style {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: #d1c4e9; /* Light pastel purple */
+            margin: 20px auto;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 800px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            animation: fadeInUp 1.5s ease-in-out;
+        }
+
+        .wedding-style:nth-child(odd) {
+            background-color: #ede7f6; /* Light lavender */
+        }
+
+        .wedding-style img {
+            width: 200px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .wedding-style h2 {
+            font-size: 2em;
+            margin-bottom: 10px;
+            color: #6a1b9a;
+        }
+
+        .wedding-style p {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #4a148c;
+        }
+
+        /* Contact section styling */
+        .contact-section {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: #b39ddb; /* Light pastel purple */
+            margin: 20px auto;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 800px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .contact-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #6a1b9a;
+        }
+
+        .contact-section p {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #4a148c;
+        }
+
+        .contact-section a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #6a1b9a;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .contact-section a:hover {
+            background-color: #4a148c;
+            transform: scale(1.1);
+        }
+
+        /* Footer styling */
+        footer {
+            background-color: #6a1b9a;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 30px;
+            font-size: 1em;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-100%);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="logo">Himachal Pradesh Weddings</div>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#muslim-wedding">Muslim Wedding</a></li>
+            <li><a href="#hindu-wedding">Hindu Wedding</a></li>
+            <li><a href="#biah-wedding">Biah Wedding</a></li> <!-- Updated id -->
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- About Section -->
+    <div class="about-section" id="about">
+        <h2><b>About Himachal Pradesh Weddings</b></h2>
+        <p><I>Himachali weddings—Hindu, Muslim, and Biah—are rich in cultural traditions, symbolizing commitment, unity, and family bonds. Hindu weddings feature sacred rituals like Kanyadaan and Pheras, signifying lifelong devotion. Muslim weddings follow Nikah, where the couple formally enters into marriage under Islamic customs. Biah weddings, a unique Himachali tradition, incorporate vibrant customs like Sehra Bandi and Nati Dance, celebrating marriage with festivity. Across all communities, weddings preserve heritage and strengthen social ties, making them an essential part of Himachal’s diverse culture.</I></p>
+    </div>
+
+    <!-- Slider -->
+    <div class="slider" id="gallery">
+        <div class="slides">
+            <video src="videos\himachal pradesh.mp4" autoplay muted loop playsinline></video>
+            <img src="images1\haryana muslim.jpg" alt="Muslim Wedding">
+            <img src="images1\himchal hindu slider.png" alt="Hindu Wedding">
+            <img src="images1\himachal slid biah.png" alt="Biah Wedding">
+        </div>
+        <div class="slider-buttons">
+            <button onclick="prevSlide()">&#10094;</button>
+            <button onclick="nextSlide()">&#10095;</button>
+        </div>
+    </div>
+
+    <!-- Wedding Sections -->
+    <div class="wedding-style" id="muslim-wedding">
+        <img src="images1\haryana muslim.jpg" alt="Muslim Wedding">
+        <h2>Himachal Pradesh Muslim Wedding</h2><hr>
+        <p><b>Muslim weddings in Himachal Pradesh, known as Nikah, have their own set of beautiful rituals: </b>
+            <hr>
+            <b>Mehendi:</b> The bride's hands and feet are adorned with intricate henna designs.
+            <hr>
+            <b>Nikah:</b> The marriage contract is signed in the presence of witnesses. 
+            <hr>
+            <b>Walima:</b> A grand reception hosted by the groom's family to celebrate the union.
+            <hr>
+             </p>
+    </div>
+
+    <div class="wedding-style" id="hindu-wedding">
+        <img src="images1\himachal hindu.jpg" alt="Hindu Wedding">
+        <h2>Himachal Pradesh Hindu Wedding</h2><hr>
+        <p><b>Hindu weddings in Himachal Pradesh are rich in rituals and traditions:</b> 
+
+            <hr>
+
+            <b>Roka Ceremony:</b> Similar to an engagement, the couple exchanges rings and officially announces their wedding. 
+            
+             <hr>
+            
+            <b>Haldi Ceremony:</b> Turmeric paste is applied to the bride and groom to bless them with good health and prosperity. 
+             
+            <hr>
+            <b>Mama Swagat:</b> The bride's maternal uncle and family are welcomed at the groom's house with music, food, and sweets. 
+            
+            <hr>
+            
+            <b> Sehra Bandi:</b> The groom's uncle ties a traditional turban on the groom as a symbol of love and respect. 
+            
+            <hr>
+            
+                <b>Tika Ceremony: The bride'</b>s family welcomes the groom by applying a ceremonial tika on his forehead. 
+            
+                <hr>
+            
+                    <b>Saptapadi:</b> The couple takes seven sacred vows around the holy fire, symbolizing their bond. 
+            
+             </p>
+    </div>
+
+    <div class="wedding-style" id="biah-wedding"> <!-- Ensure the id matches the navbar link -->
+        <img src="images1\himachal biah wedding.jpg" alt="Biah Wedding">
+        <h2>Himachal Pradesh Biah Wedding</h2><hr>
+        <p><b>Chooda & Suhagi:</b> Bride receives bangles and wedding attire from the groom’s family.<hr>
+             <b>Sehra Bandi:</b> Groom wears a floral headgear.<hr>
+             <b>Milni Ceremony:</b> Families exchange gifts.<hr>
+             <b>Kanyadaan & Pheras:</b> Bride’s parents give her away, and the couple circles the sacred fire seven times.<hr>
+             <b>Nati Dance:</b> Celebratory Himachali dance concludes the festivities.<hr>
+        </p>
+    </div>
+
+    <!-- Contact Section -->
+    <div class="contact-section" id="contact">
+        <h2>Contact Us</h2>
+        <p>If you have any questions or would like to learn more about Himachal Pradesh weddings, feel free to reach out to us.</p>
+        <a href="mailto:info@himachalpradeshweddings.com">Email Us</a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Rituals and Revelry - Unveiling Indian Wedding Traditions. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            const slides = document.querySelector('.slides');
+            const totalSlides = slides.children.length;
+            if (index >= totalSlides) currentSlide = 0;
+            else if (index < 0) currentSlide = totalSlides - 1;
+            else currentSlide = index;
+            slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+        }
+    </script>
+</body>
+</html>

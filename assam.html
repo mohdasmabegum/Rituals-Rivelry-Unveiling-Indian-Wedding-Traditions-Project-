@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assam Weddings</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #fef6e4, #f7d9c4);
+            color: #4a2c2a;
+            scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+        }
+
+        /* Navbar styling */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #cfd3f7;
+            padding: 20px 40px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar .logo {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #8b5e3c;
+        }
+
+        .navbar a {
+            color: #8b5e3c;
+            text-decoration: none;
+            padding: 15px 20px;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            border-radius: 5px;
+        }
+
+        .navbar a:hover {
+            background-color: #f4d3b2;
+            transform: scale(1.1);
+        }
+
+        /* About section styling */
+        .about-section {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: #fef6e4; /* Pastel cream */
+            margin: 20px auto;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 800px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .about-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #d4a373;
+        }
+
+        .about-section p {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #4a2c2a;
+        }
+
+        /* Slider styling */
+        .slider {
+            position: relative;
+            width: 100%;
+            max-width: 1000px;
+            margin: 20px auto;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .slides {
+            display: flex;
+            transition: transform 1s ease-in-out;
+        }
+
+        .slides img, .slides video {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .slider-buttons {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+        .slider-buttons button {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            border-radius: 50%;
+        }
+
+        .slider-buttons button:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        /* Wedding section styling */
+        .wedding-style {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: #e8f8f5; /* Pastel teal */
+            margin: 20px auto;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 800px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .wedding-style:nth-child(odd) {
+            background-color: #fef6e4; /* Pastel cream */
+        }
+
+        .wedding-style img {
+            width: 200px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .wedding-style h2 {
+            font-size: 2em;
+            margin-bottom: 10px;
+            color: #d4a373;
+        }
+
+        .wedding-style p {
+        text-align: left; /* Align text to the left */
+        margin: 0 20px; /* Add some margin for spacing */
+        font-size: 1.2em;
+        line-height: 1.8;
+        color: #4a2c2a;
+    }
+
+        /* Contact section styling */
+        .contact-section {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: #f7d9c4; /* Pastel pink */
+            margin: 20px auto;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 800px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .contact-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #d4a373;
+        }
+
+        .contact-section p {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #4a2c2a;
+        }
+
+        .contact-section a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #d4a373;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .contact-section a:hover {
+            background-color: #b98c5a;
+            transform: scale(1.1);
+        }
+
+        /* Footer styling */
+        footer {
+            background-color: #d4a373;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 30px;
+            font-size: 1em;
+        }
+
+        footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="logo">Assam Weddings</div>
+        <div>
+            <a href="#about">About</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#muslim-wedding">Muslim Wedding</a>
+            <a href="#hindu-wedding">Hindu Wedding</a>
+            <a href="#christian-wedding">Christian Wedding</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <div class="about-section" id="about">
+        <h2>About Assam Weddings</h2>
+        <p><I>Weddings in Assam—Hindu, Muslim, and Christian—are deeply rooted in tradition and symbolize unity, commitment, and cultural heritage. Hindu weddings follow sacred rituals like Kanyadaan and Saptapadi, emphasizing spiritual and familial bonds. Muslim weddings blend Islamic customs with Assamese traditions, featuring Nikah and unique pre-wedding ceremonies like Murot Tel Diya, influenced by Hindu practices. Christian weddings are marked by a church ceremony where vows are exchanged before a priest, signifying divine blessings on the union. Across all communities, weddings serve as a sacred institution that strengthens family ties, preserves customs, and fosters social harmony, making them an integral part of Assam’s diverse cultural landscape.
+        </I></p>
+    </div>
+
+    <!-- Slider -->
+    <div class="slider" id="gallery">
+        <div class="slides">
+            <video src="videos/assam.mp4" autoplay muted loop playsinline></video>
+            <img src="images1\arunchal muslim.jpg" alt="Muslim Wedding">
+            <img src="images1/assam hindu.jpg" alt="Hindu Wedding">
+            <img src="images1/christian (13).jpg" alt="Christian Wedding">
+        </div>
+        <div class="slider-buttons">
+            <button onclick="prevSlide()">&#10094;</button>
+            <button onclick="nextSlide()">&#10095;</button>
+        </div>
+    </div>
+
+    <!-- Wedding Sections -->
+    <div class="wedding-style" id="muslim-wedding">
+        <img src="images1\arunchal muslim.jpg" alt="Muslim Wedding">
+        <h2>Traditional Assam Muslim Wedding</h2>
+        <p><b>Nikah Ceremony:</b> The marriage contract is signed in the presence of witnesses, and the couple exchanges vows. 
+
+          <p><b>  Mehr:</b> A mandatory gift from the groom to the bride, usually in the form of money or jewelry.</p><hr> 
+            
+           <p><b> Walima:</b> A grand feast hosted by the groom's family to celebrate the marriage. </p><hr>
+            
+            <p><b> Rukhsati:</b> The bride's farewell from her family, symbolizing her new journey with her husband. </p><hr>
+    </div>
+
+    <div class="wedding-style" id="hindu-wedding">
+        <img src="images1\assam hindu.jpg" alt="Hindu Wedding">
+        <h2>Traditional Assam Hindu Wedding</h2>
+        <p><b>Juran Diya:</b> The groom's mother visits the bride's house with gifts, including betel leaves and nuts, and performs rituals like putting oil on the bride's hair. </p><hr>
+
+           <p><b>Pani Tola:</b> Collecting holy water from a nearby pond or river for the ceremonial bath. </p><hr>
+            
+            <p><b>Nuani:</b> A ceremonial bath for the bride and groom, involving turmeric and other traditional ingredients. </p><hr>
+            
+                <p><b>Wedding Ceremony:</b> The main wedding ceremony involves the couple taking vows in front of a sacred fire, exchanging garlands, and the groom applying sindoor (vermilion) on the bride's forehead. </p><hr>
+    </div>
+
+    <div class="wedding-style" id="christian-wedding">
+        <img src="images1\christian (13).jpg" alt="Christian Wedding">
+        <h2>Traditional Assam Christian Wedding</h2>
+        <p><b>Church Ceremony:</b> The couple exchanges vows and rings in the presence of a priest and witnesses. </p>
+
+          <p><b>Blessing:</b> The priest blesses the couple, and they sign the marriage register. </p><hr>
+            
+          <p><b>Reception:</b> A celebration with family and friends, often involving a cake-cutting ceremony and dancing. </p><hr>
+            
+    </div>
+
+    <!-- Contact Section -->
+    <div class="contact-section" id="contact">
+        <h2>Contact Us</h2>
+        <p>If you have any questions or would like to learn more about Assamese weddings, feel free to reach out to us.</p>
+        <a href="mailto:info@assamweddings.com">Email Us</a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Rituals and Revelry - Unveiling Indian Wedding Traditions. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            const slides = document.querySelector('.slides');
+            const totalSlides = slides.children.length;
+            if (index >= totalSlides) currentSlide = 0;
+            else if (index < 0) currentSlide = totalSlides - 1;
+            else currentSlide = index;
+            slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+        }
+    </script>
+</body>
+</html>

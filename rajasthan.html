@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rajasthan Weddings</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #e3f2fd, #bbdefb);
+            color: #0d47a1;
+            scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+        }
+
+        /* Navbar styling */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #bbdefb;
+            padding: 15px 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar .logo {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #1565c0;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar ul li {
+            margin: 0 10px;
+        }
+
+        .navbar ul li a {
+            color: #1565c0;
+            text-decoration: none;
+            padding: 10px 15px;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            border-radius: 5px;
+        }
+
+        .navbar ul li a:hover {
+            background-color: #90caf9;
+            transform: scale(1.1);
+        }
+
+        /* About section styling */
+        .about-section {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: #e3f2fd; /* Light blue */
+            margin: 20px auto;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 800px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .about-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #1565c0;
+        }
+
+        .about-section p {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #0d47a1;
+        }
+
+        /* Slider styling */
+        .slider {
+            position: relative;
+            width: 100%;
+            max-width: 1000px;
+            margin: 20px auto;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            animation: slideIn 1.5s ease-in-out;
+        }
+
+        .slides {
+            display: flex;
+            transition: transform 1s ease-in-out;
+        }
+
+        .slides img, .slides video {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .slider-buttons {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+        .slider-buttons button {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            border-radius: 50%;
+        }
+
+        .slider-buttons button:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        /* Wedding section styling */
+        .wedding-style {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: #bbdefb; /* Light pastel blue */
+            margin: 20px auto;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 800px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            animation: fadeInUp 1.5s ease-in-out;
+        }
+
+        .wedding-style:nth-child(odd) {
+            background-color: #e3f2fd; /* Light blue */
+        }
+
+        .wedding-style img {
+            width: 200px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .wedding-style h2 {
+            font-size: 2em;
+            margin-bottom: 10px;
+            color: #1565c0;
+        }
+
+        .wedding-style p {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #0d47a1;
+        }
+
+        /* Contact section styling */
+        .contact-section {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: #90caf9; /* Light pastel blue */
+            margin: 20px auto;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 800px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .contact-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #1565c0;
+        }
+
+        .contact-section p {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #0d47a1;
+        }
+
+        .contact-section a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #1565c0;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .contact-section a:hover {
+            background-color: #0d47a1;
+            transform: scale(1.1);
+        }
+
+        /* Footer styling */
+        footer {
+            background-color: #1565c0;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 30px;
+            font-size: 1em;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-100%);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="logo">Rajasthan Weddings</div>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#muslim-wedding">Muslim Wedding</a></li>
+            <li><a href="#hindu-wedding">Hindu Wedding</a></li>
+            <li><a href="#christian-wedding">Court Wedding</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- About Section -->
+    <div class="about-section" id="about">
+        <h2>About Rajasthan Weddings</h2><hr>
+<p>
+<strong>Rajasthan</strong> is renowned for its royal heritage and majestic wedding celebrations, which are a vibrant blend of tradition, color, and grandeur. Weddings in Rajasthan are not just family affairs but grand social events, often lasting several days and involving elaborate rituals, folk music, and dance. Distinctive features include the use of traditional attire like the ghagra-choli and sherwani, ornate jewelry, and decorative arts such as mehendi and intricate mandap designs. The ceremonies emphasize family honor, respect for elders, and the blessings of deities, with rituals that reflect the state’s deep-rooted cultural pride. Community participation, lavish feasts, and processions with horses or elephants make every Rajasthani wedding a spectacular and unforgettable event.
+</p>
+
+    </div>
+
+    <!-- Slider -->
+    <div class="slider" id="gallery">
+        <div class="slides">
+            <video src="videos/rajasthan.mp4" autoplay muted loop playsinline></video>
+            <img src="images1\rajas hindu slid.png" alt="Hindu Wedding">
+            <img src="images1\rajas muslim slid.png" alt="Muslim Wedding">
+            <img src="images1\christian (5).jpg" alt="Court Wedding">
+        </div>
+        <div class="slider-buttons">
+            <button onclick="prevSlide()">&#10094;</button>
+            <button onclick="nextSlide()">&#10095;</button>
+        </div>
+    </div>
+
+    <!-- Wedding Sections -->
+    <div class="wedding-style" id="hindu-wedding">
+        <img src="images1\rajas hindu.jpg" alt="Hindu Wedding">
+        <h2>Traditional Rajasthan Hindu Wedding</h2><hr>
+<p>
+<strong>Sagai (Engagement):</strong> The families meet and exchange gifts, formally announcing the upcoming marriage.<br>
+<strong>Pithi Dastoor (Haldi Ceremony):</strong> Turmeric paste is applied to the bride and groom at their respective homes for blessings and purification.<br>
+<strong>Mehendi Ceremony:</strong> The bride’s hands and feet are adorned with intricate henna designs, accompanied by music and dance.<br>
+<strong>Mahira Dastoor:</strong> The maternal uncle visits the bride’s or groom’s home with gifts and sweets, symbolizing his blessings.<br>
+<strong>Baraat (Groom’s Procession):</strong> The groom arrives at the wedding venue on a horse or elephant, accompanied by a lively procession of family and friends.<br>
+<strong>Wedding Ceremony:</strong> The main rituals include Granthi Bandhan (tying the knot), Kanyadaan (giving away of the bride), Mangal Pheras (seven circles around the sacred fire), and Sindoor Daan (applying vermillion).<br>
+<strong>Reception:</strong> After the wedding, a grand feast and cultural performances are organized to celebrate the new union.
+</p>
+
+    </div>
+
+    <div class="wedding-style" id="muslim-wedding">
+        <img src="images1\rajas muslim.jpg" alt="Muslim Wedding">
+        <h2>Traditional Rajasthan Muslim Wedding</h2><hr> 
+<p>
+<strong>Engagement (Mangni):</strong> The engagement is celebrated with the exchange of gifts and sweets.<br>
+<strong>Mehendi Ceremony:</strong> The bride’s hands and feet are decorated with henna, and women sing traditional songs.<br>
+<strong>Nikah (Wedding Ceremony):</strong> The marriage contract is signed in the presence of elders, with blessings and recitation of verses.<br>
+<strong>Walima (Reception):</strong> The groom’s family hosts a lavish feast, featuring traditional dishes and music.
+</p>
+   </div>
+
+    <div class="wedding-style" id="christian-wedding">
+        <img src="images1\christian (5).jpg" alt="Court Wedding">
+        <h2>Traditional Court Marriage in Rajasthan</h2><hr>
+<p>
+<strong>Notice of Intended Marriage:</strong> The couple submits a formal notice to the local marriage registrar.<br>
+<strong>Verification of Documents:</strong> All required documents are checked by officials.<br>
+<strong>Declaration by the Couple:</strong> The couple and witnesses sign a declaration in the registrar’s office.<br>
+<strong>Marriage Solemnization:</strong> The marriage is officially solemnized in a simple ceremony.<br>
+<strong>Issuance of Marriage Certificate:</strong> The couple receives a legal certificate, recognized by the state as proof of marriage.
+</p>    </div>
+
+    <!-- Contact Section -->
+    <div class="contact-section" id="contact">
+        <h2>Contact Us</h2>
+        <p>If you have any questions or would like to learn more about Rajasthan weddings, feel free to reach out to us.</p>
+        <a href="mailto:info@rajasthanweddings.com">Email Us</a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Rituals and Revelry - Unveiling Indian Wedding Traditions. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            const slides = document.querySelector('.slides');
+            const totalSlides = slides.children.length;
+            if (index >= totalSlides) currentSlide = 0;
+            else if (index < 0) currentSlide = totalSlides - 1;
+            else currentSlide = index;
+            slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+        }
+    </script>
+</body>
+</html>

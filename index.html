@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>India Map with State Tooltips</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: #f4f4f4;
+    }
+
+    h1 {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    p {
+      text-align: center;
+    }
+
+    .map-container {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    }
+    
+
+    .card {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translate(-50%, -50%);
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      max-width: 300px;
+      width: 90%;
+      padding: 20px;
+      text-align: center;
+      display: none;
+      z-index: 10;
+    }
+
+    .card video {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+
+    .card h2 {
+      margin: 10px 0;
+    }
+
+    .card p {
+      color: #555;
+      margin: 10px 0;
+    }
+
+    .card a {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 4px;
+    }
+
+    .card a:hover {
+      background-color: #0056b3;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: #ff5c5c;
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 25px;
+      height: 25px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .close-btn:hover {
+      background: #ff3b3b;
+    }
+  </style>
+</head>
+<body>
+  <h1>Interactive Map of India</h1>
+  <p>Hover over a state to see its name.</p>
+
+  <div class="map-container">
+    <img src="images1\india map.webp" usemap="#india-map" alt="Map of India">
+    <div class="card" id="info-card">
+      <button class="close-btn" onclick="hideCard()">×</button>
+      <video controls autoplay>
+        <source src="video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <h2 id="card-title">India's Heritage</h2>
+      <p id="card-description">Discover the rich culture, history, and beauty of India through this interactive map and video.</p>
+      <a id="card-link" href="https://example.com" target="_blank">Explore!</a>
+    </div>
+  </div>
+
+  <map name="india-map">
+    <area shape="poly" coords="210,48,233,58,238,49,245,54,255,56,264,50,272,53,279,49,286,49,291,41,303,40,303,29,317,24,327,24,327,16,343,13,352,4,364,5,373,20,382,18,392,23,392,30,390,40,390,46,380,52,370,57,372,67,359,73,361,81,356,89,353,95,361,103,365,111,365,127,356,129,353,123,345,121,336,115,331,119,322,109,311,112,301,112,293,98,282,98,271,98,261,106,252,109,254,114,250,122,242,127,234,122,223,123,216,111,207,102,207,86,207,74,203,66,196,59,199,46,191,50" href="jammu and kashmir.html" title="Jammu & Kashmir" alt="Jammu & Kashmir" onmouseover="showCard(event, 'Jammu & Kashmir', 'Explore the beauty of Jammu & Kashmir.', 'https://example.com/jk','videos/jammu kashmir.mp4')" onclick="lockCard()">
+    <area shape="poly" coords="254,140,261,127,267,116,276,105,288,112,296,119,310,121,321,123,334,125,333,139,341,152,345,166,326,169,313,186,306,192,287,179,271,166" href="himachalpradesh.html" title="Himachal Pradesh" alt="Himachal Pradesh" onmouseover="showCard(event, 'Himachal Pradesh', 'Explore the scenic beauty of Himachal Pradesh.', 'https://example.com/hp','videos/himachal pradesh.mp4')" onclick="lockCard()">
+    <area shape="poly" coords="220,156,237,150,252,152,258,163,262,177,269,185,275,185,281,190,285,200,279,208,266,215,256,219,243,225,229,219,217,219,204,217,198,201,212,193,228,185,224,173" href="punjab.html" title="Punjab" alt="Punjab" onmouseover="showCard(event, 'Punjab', 'Discover the vibrant culture of Punjab.', 'https://example.com/punjab','videos/punjab.mp4')" onclick="lockCard()">
+    <area shape="poly" coords="326,204,326,182,338,179,355,181,368,184,383,190,395,198,413,208,407,219,398,223,395,234,394,244,394,257,376,255,367,242,348,227,326,224" href="uttarakhand.html" title="Uttarakhand" alt="Uttarakhand" onmouseover="showCard(event, 'Uttarakhand', 'Explore the serene landscapes of Uttarakhand.', 'https://example.com/uttarakhand','videos/uttarakhand.mp4')" onclick="lockCard()">
+    <area shape="poly" coords="222,230,241,244,251,234,266,234,278,226,293,217,296,202,307,202,293,224,293,232,291,239,289,259,288,273,291,282,297,284,307,285,299,290,280,278,270,282,261,273,245,259,229,240" href="haryana.html" title="Haryana" alt="Haryana" onmouseover="showCard(event, 'Haryana', 'Learn about the rich history of Haryana.', 'https://example.com/haryana','videos/haryana.mp4')" onclick="lockCard()">
+    <area shape="poly" coords="294,272,300,267,302,277" href="delhi.html" title="Delhi" alt="Delhi" onmouseover="showCard(event, 'Delhi', 'Explore the capital city of India.', 'https://example.com/delhi','videos/delhi.mp4')" onclick="lockCard()">
+    <area shape="poly" coords="314,218,306,229,307,244,317,262,322,280,318,295,321,304,325,317,340,323,357,322,371,340,371,357,368,368,357,368,344,380,341,401,341,412,344,401,355,376,365,380,378,378,392,375,406,375,415,387,429,383,443,375,462,372,472,383,482,392,488,376,484,371,490,373,488,372,507,369,509,356,520,345,512,333,510,320,507,331,427,287,473,313,451,311,440,301,414,290,397,289,386,278,365,270,342,255,334,247,327,237,421,310,484,371,488,372,488,376" href="uttarpradesh.html" title="Uttar Pradesh" alt="Uttar Pradesh" onmouseover="showCard(event, 'Uttar Pradesh', 'Discover the heritage of Uttar Pradesh.', 'https://example.com/up','videos/uttar pradesh.mp4')" onclick="lockCard()">
+    <area shape="poly" coords="535,323,544,335,545,349,539,354,547,361,548,378,531,387,518,395,522,409,539,403,552,408,564,404,568,407,564,404,585,391,597,400,612,401,614,404,623,391,644,378,646,364,631,357,605,357,586,354,571,343,554,342,542,333" href="bihar.html" title="Bihar" alt="Bihar" onmouseover="showCard(event, 'Bihar', 'Explore the ancient history of Bihar.', 'https://example.com/bihar','videos/bihar.mp4')" onclick="lockCard()">
+    <area shape="poly" coords="513,423,524,422,535,424,548,427,562,423,583,416,597,412,600,424,612,420,629,418,635,403,643,393,643,414,639,426,623,431,609,438,591,446,581,452,578,462,590,468,602,473,609,483,589,476,585,498,573,485,558,477,548,479,540,483,544,466,536,457,532,439,520,435" href="jharkhand.html" title="Jharkhand" alt="Jharkhand" onmouseover="showCard(event, 'Jharkhand', 'Discover the natural beauty of Jharkhand.', 'https://example.com/jharkhand','videos/jharkhand.mp4')" onclick="lockCard()">
+    <area shape="poly" coords="670,337,683,337,670,334,663,353,657,368,660,376,668,351,684,347,670,341,670,376,675,383,661,387,664,399,670,337,660,406,659,420,674,422,672,437,674,452,675,463,680,477,684,496,668,508,660,490,653,502,645,506,633,498,625,486,618,475,610,464,598,460,619,447,633,446,646,441,655,427" href="westbengal.html" title="West Bengal" alt="West Bengal" onmouseover="showCard(event, 'West Bengal', 'Explore the culture of West Bengal.', 'https://example.com/wb','videos/west bengal.mp4')" onclick="lockCard()">
+    <area shape="poly" coords="667,303,677,297,683,304,682,315,683,323,670,323,660,315" href="sikkim.html" title="Sikkim" alt="Sikkim" onmouseover="showCard(event, 'Sikkim', 'Explore the natural beauty of Sikkim.', 'https://example.com/sikkim','videos/sikkim.mp4')" onclick="lockCard()">
+<area shape="poly" coords="724,343,737,340,749,344,757,343,774,345,795,345,803,334,816,334,834,340,849,336,861,324,875,314,892,307,904,305,911,313,894,321,876,328,868,339,854,362,843,363,834,367,831,378,835,383,827,395,818,413,804,416,818,392,822,373,811,365,797,358,784,355,773,360,762,362,753,358,727,354" href="assam.html"title="Assam" alt="Assam" onmouseover="showCard(event, 'Assam', 'Discover the vibrant culture of Assam.', 'https://example.com/assam','videos/assam.mp4')" onclick="lockCard()">
+<area shape="poly" coords="721,381,732,387,746,383,759,387,774,389,794,391,807,383,792,374,786,365,774,376,759,370,746,368,732,366" href="#" title="Meghalaya" alt="Meghalaya" onmouseover="showCard(event, 'Meghalaya', 'Explore the scenic beauty of Meghalaya.', 'https://example.com/meghalaya')" onclick="lockCard()">
+<area shape="poly" coords="790,424,788,435,781,445,777,458,773,446,769,434" href="tripura.html" title="Tripura" alt="Tripura" onmouseover="showCard(event, 'Tripura', 'Discover the charm of Tripura.', 'https://example.com/tripura','videos/tripura.mp4')" onclick="lockCard()">
+<area shape="poly" coords="803,442,805,431,817,429,824,430,831,441,831,452,830,460,823,468,820,483,820,496,813,488,807,468,808,453,817,429" href="mizoram.html" title="Mizoram" alt="Mizoram" onmouseover="showCard(event, 'Mizoram', 'Explore the serene landscapes of Mizoram.', 'https://example.com/mizoram','videos/mizoram.mp4')" onclick="lockCard()">
+<area shape="poly" coords="874,376,872,387,861,381,849,392,836,400,834,414,834,419,842,424,857,429,868,415,873,403" href="mani pur.html" title="Manipur" alt="Manipur" onmouseover="showCard(event, 'Manipur', 'Discover the beauty of Manipur.', 'https://example.com/manipur','videos/manipur.mp4')" onclick="lockCard()">
+<area shape="poly" coords="889,338,887,349,885,361,881,372,876,365,857,372,843,380,851,374,869,354,878,346" href="#" title="Nagaland" alt="Nagaland" onmouseover="showCard(event, 'Nagaland', 'Explore the culture of Nagaland.', 'https://example.com/nagaland')" onclick="lockCard()">
+<area shape="poly" coords="790,304,809,301,819,291,832,282,836,274,855,269,873,249,893,263,924,242,919,254,937,261,930,270,931,278,943,284,961,291,947,301,950,312,924,300,916,284,903,289,885,300,862,300,853,313,842,323,832,326,801,322" href="arunachalpradesh.html" title="Arunachal Pradesh" alt="Arunachal Pradesh" onmouseover="showCard(event, 'Arunachal Pradesh', 'Discover the untouched beauty of Arunachal Pradesh.', 'https://example.com/arunachal','videos/arunachalpradesh.mp4')" onclick="lockCard()">
+<area shape="poly" coords="454,445,476,446,510,442,518,457,527,483,514,489,503,507,497,521,492,529,469,534,464,549,464,565,451,575,451,590,464,594,458,613,442,630,436,646,424,625,411,611,432,590,421,575,423,548,422,525,436,495,462,481,472,456" href="chhatisgarh.html" title="Chhattisgarh" alt="Chhattisgarh" onmouseover="showCard(event, 'Chhattisgarh', 'Explore the rich heritage of Chhattisgarh.', 'https://example.com/chhattisgarh','videos/chhatishgarh.mp4')" onclick="lockCard()">
+<area shape="poly" coords="476,559,481,545,503,548,510,533,523,503,541,499,552,507,568,514,583,513,599,509,599,498,614,503,622,513,615,525,615,543,604,560,600,567,576,575,552,593,530,612,507,599,485,612,476,625,453,640,470,610,465,590,481,591,491,576" href="orissa.html" title="Odisha" alt="Odisha" onmouseover="showCard(event, 'Odisha', 'Discover the beauty of Odisha.', 'https://example.com/odisha','videos/orissa.mp4')" onclick="lockCard()">
+<area shape="poly" coords="310,706,323,702,348,695,369,684,409,671,436,657,453,653,479,648,493,634,506,623,524,623,503,641,485,661,457,674,459,690,441,694,428,711,406,717,390,730,390,749,395,772,394,787,376,794,356,805,341,794,323,775,313,779,305,764,294,755,305,733,298,721" href="andrapradesh.html" title="Andhra Pradesh" alt="Andhra Pradesh" onmouseover="showCard(event, 'Andhra Pradesh', 'Explore the culture of Andhra Pradesh.', 'https://andrapradesh.html','videos/andhrapradesh.mp4')" onclick="lockCard()">
+<area shape="poly" coords="317,630,328,614,344,589,362,597,385,604,385,620,393,631,412,633,415,650,409,661,382,673,363,677,344,689,328,695,312,696,320,679,321,652" href="telangana.html" title="Telangana" alt="Telangana" onmouseover="showCard(event, 'Telangana', 'Discover the heritage of Telangana.', 'https://telangana.html','videos/telangana.mp4')" onclick="lockCard()">
+<area shape="poly" coords="210,747,211,714,218,700,232,700,245,690,260,677,276,682,285,668,297,655,303,644,301,664,303,677,301,689,295,700,291,714,286,742,279,762,286,771,297,804,302,796,314,796,335,800,336,811,318,813,305,842,297,850,287,855,267,850,246,826,231,813,223,788" href="karnataka.html" title="Karnataka" alt="Karnataka" onmouseover="showCard(event, 'Karnataka', 'Explore the vibrant culture of Karnataka.', 'https://example.com/karnataka','videos/karnataka.mp4')" onclick="lockCard()">
+<area shape="poly" coords="227,824,239,836,251,851,262,854,268,865,276,880,281,890,281,903,287,915,293,908,293,919,295,928,296,943,295,960,287,949,277,927,261,881,249,860" href="kerala.html" title="Kerala" alt="Kerala" onmouseover="showCard(event, 'Kerala', 'Discover the serene backwaters of Kerala.', 'https://example.com/kerala','videos/kerala.mp4')" onclick="lockCard()">
+<area shape="poly" coords="288,867,311,864,323,851,327,825,343,835,366,820,396,812,392,827,385,837,376,858,381,874,381,883,383,893,361,900,353,912,354,923,337,936,319,963,307,971,315,944,307,893,294,890" href="tamilnadu.html" title="Tamil Nadu" alt="Tamil Nadu" onmouseover="showCard(event, 'Tamil Nadu', 'Explore the rich culture of Tamil Nadu.', 'https://example.com/tamilnadu','videos/tamilnadu.mp4')" onclick="lockCard()">
+<area shape="poly" coords="185,721,195,724,202,730,198,744,192,733" href="goa.html" title="Goa" alt="Goa" onmouseover="showCard(event, 'Goa', 'Discover the beaches of Goa.', 'https://example.com/goa','videos/goa.mp4')" onclick="lockCard()">
+<area shape="poly" coords="153,575,153,596,164,610,162,634,171,657,175,682,180,709,195,711,200,692,210,678,226,674,240,669,245,655,264,656,271,644,280,632,288,625,299,622,310,618,310,603,323,590,332,582,342,571,356,576,368,582,391,584,395,606,414,587,405,571,402,542,397,527,375,522,344,527,315,527,299,523,269,540,250,529,230,530,217,519,199,510,207,523,198,527,196,545,188,563,180,554,175,580" href="maharashtra.html" title="Maharashtra" alt="Maharashtra" onmouseover="showCard(event, 'Maharashtra', 'Explore the vibrant culture of Maharashtra.', 'https://example.com/maharashtra','videos/maharastra.mp4')" onclick="lockCard()">
+<area shape="poly" coords="199,494,217,484,221,466,225,452,230,430,223,408,250,416,237,442,253,452,264,437,284,437,302,424,294,406,310,393,302,381,284,381,300,362,315,354,332,346,352,347,342,370,328,388,325,400,326,416,328,426,340,431,356,435,364,422,353,403,365,403,384,406,403,407,421,407,440,404,459,410,478,418,470,434,441,429,434,447,443,457,452,460,443,471,440,479,420,494,413,510,407,517,394,507,372,503,353,507,345,510,317,511,310,500,294,507,273,514,272,522,246,517,223,508" href="madhyapradesh.html" title="Madhya Pradesh" alt="Madhya Pradesh" onmouseover="showCard(event, 'Madhya Pradesh', 'Explore the heart of India.', 'https://example.com/mp','videos/madhyapradesh.mp4')" onclick="lockCard()">
+<area shape="poly" coords="185,227,203,234,209,253,228,254,245,266,255,288,261,307,277,300,288,300,300,313,307,326,318,334,307,343,291,354,277,360,272,370,272,381,277,395,279,415,273,412,258,423,261,403,249,401,234,388,220,397,214,406,212,419,216,438,208,452,194,441,184,422,176,408,163,408,157,415,140,403,120,400,109,406,93,385,88,364,73,368,77,345,63,337,56,327,76,301,98,312,131,300,148,273,166,257,175,238" href="rajasthan.html" title="Rajasthan" alt="Rajasthan" onmouseover="showCard(event, 'Rajasthan', 'Discover the royal heritage of Rajasthan.', 'https://example.com/rajasthan','videos/rajasthan.mp4')" onclick="lockCard()">
+<area shape="poly" coords="13,443,28,443,33,429,51,432,61,433,78,432,99,437,108,424,126,421,140,420,163,426,170,437,171,448,191,460,198,468,197,476,194,491,194,502,179,513,186,521,175,538,164,554,163,558,156,522,164,514,158,494,150,485,136,496,134,504,135,516,131,528,115,535,98,542,81,543,77,532,56,524,43,502,39,490,51,489,66,486,88,474,93,452,72,454,51,466,37,465,26,457,19,456,46,465,19,456" href="gujarath.html" title="Gujarat" alt="Gujarat" onmouseover="showCard(event, 'Gujarat', 'Explore the vibrant culture of Gujarat.', 'https://example.com/gujarat','videos/gujarath.mp4')" onclick="lockCard()">
+</map>
+
+  <script>
+    const card = document.getElementById('info-card');
+    const cardTitle = document.getElementById('card-title');
+    const cardDescription = document.getElementById('card-description');
+    const cardLink = document.getElementById('card-link');
+    const cardVideo = card.querySelector('video source');
+    let isLocked = false;
+
+    function showCard(event, title, description, link, videoSrc) {
+  if (!isLocked) {
+    card.style.display = 'block';
+    card.style.top = `${event.clientY}px`;
+    card.style.left = `${event.clientX}px`;
+    cardTitle.textContent = title;
+    cardDescription.textContent = description;
+    cardLink.href = link;
+    cardVideo.src = videoSrc; // Dynamically set the video source
+    card.querySelector('video').load(); // Reload the video
+    card.querySelector('video').play(); // Play the video
+  }
+    }
+
+    function hideCard() {
+      isLocked = false;
+      card.style.display = 'none';
+    }
+
+    function lockCard() {
+      isLocked = true;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kerala Weddings</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #e8f5e9, #c8e6c9);
+            color: #1b5e20;
+            scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+        }
+
+        /* Navbar styling */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #c8e6c9;
+            padding: 15px 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar .logo {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #2e7d32;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar ul li {
+            margin: 0 10px;
+        }
+
+        .navbar ul li a {
+            color: #2e7d32;
+            text-decoration: none;
+            padding: 10px 15px;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            border-radius: 5px;
+        }
+
+        .navbar ul li a:hover {
+            background-color: #a5d6a7;
+            transform: scale(1.1);
+        }
+
+        /* About section styling */
+        .about-section {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: #e8f5e9; /* Light green */
+            margin: 20px auto;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 800px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .about-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #2e7d32;
+        }
+
+        .about-section p {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #1b5e20;
+        }
+
+        /* Slider styling */
+        .slider {
+            position: relative;
+            width: 100%;
+            max-width: 1000px;
+            margin: 20px auto;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            animation: slideIn 1.5s ease-in-out;
+        }
+
+        .slides {
+            display: flex;
+            transition: transform 1s ease-in-out;
+        }
+
+        .slides img, .slides video {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .slider-buttons {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+        .slider-buttons button {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            border-radius: 50%;
+        }
+
+        .slider-buttons button:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        /* Wedding section styling */
+        .wedding-style {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: #c8e6c9; /* Light pastel green */
+            margin: 20px auto;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 800px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            animation: fadeInUp 1.5s ease-in-out;
+        }
+
+        .wedding-style:nth-child(odd) {
+            background-color: #e8f5e9; /* Light green */
+        }
+
+        .wedding-style img {
+            width: 200px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .wedding-style h2 {
+            font-size: 2em;
+            margin-bottom: 10px;
+            color: #2e7d32;
+        }
+
+        .wedding-style p {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #1b5e20;
+        }
+
+        /* Contact section styling */
+        .contact-section {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: #a5d6a7; /* Light pastel green */
+            margin: 20px auto;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 800px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .contact-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #2e7d32;
+        }
+
+        .contact-section p {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #1b5e20;
+        }
+
+        .contact-section a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #2e7d32;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .contact-section a:hover {
+            background-color: #1b5e20;
+            transform: scale(1.1);
+        }
+
+        /* Footer styling */
+        footer {
+            background-color: #2e7d32;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 30px;
+            font-size: 1em;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-100%);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="logo">Kerala Weddings</div>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#muslim-wedding">Muslim Wedding</a></li>
+            <li><a href="#hindu-wedding">Hindu Wedding</a></li>
+            <li><a href="#christian-wedding">Christian Wedding</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- About Section -->
+    <div class="about-section" id="about">
+        <h2>About Kerala Weddings</h2><hr> 
+<p>
+<strong>Kerala State</strong> is renowned for its colorful and inclusive wedding traditions, where each ceremony is a blend of time-honored customs and modern celebrations. Weddings are major social events, often involving the entire community, and are marked by elaborate rituals, vibrant attire, and local music and dance. The state’s diversity is reflected in the variety of wedding types, each with its own distinctive ceremonies and cultural significance.<br>
+A unique aspect of weddings in <strong>The State</strong> is the strong emphasis on family unity, respect for elders, and community participation. Traditional cuisine, folk performances, and decorative arts are central to the festivities, highlighting the region’s rich heritage. The state also ensures that legal procedures for marriage are accessible and inclusive, recognizing both traditional and court marriages.<br>
+Overall, marriages in <strong>The State</strong> are cherished as grand celebrations that strengthen social bonds and preserve the unique identity of the region.
+</p>
+   </div>
+
+    <!-- Slider -->
+    <div class="slider" id="gallery">
+        <div class="slides">
+            <video src="videos/kerala.mp4" autoplay muted loop playsinline></video>
+            <img src="images1\karna slid muslim.png" alt="Muslim Wedding">
+            <img src="images1\karna sli hindu.png" alt="Hindu Wedding">
+            <img src="images1\christian (18).jpg" alt="Christian Wedding">
+        </div>
+        <div class="slider-buttons">
+            <button onclick="prevSlide()">&#10094;</button>
+            <button onclick="nextSlide()">&#10095;</button>
+        </div>
+    </div>
+
+    <!-- Wedding Sections -->
+    <div class="wedding-style" id="muslim-wedding">
+        <img src="images1\kerala musl.jpg" alt="Muslim Wedding">
+        <h2>Traditional Kerala Muslim Wedding</h2><hr> 
+<p>
+<strong>Istikhara and Imam Zamin:</strong> Prayers are offered for guidance, and the groom’s mother ties a symbolic coin on the bride’s arm, reflecting local customs.<br>
+<strong>Mangni (Engagement):</strong> The engagement is celebrated with the exchange of gifts and sweets, following regional traditions.<br>
+<strong>Mehendi Ceremony:</strong> The bride’s hands and feet are adorned with henna, and women sing folk songs unique to the state.<br>
+<strong>Nikah (Wedding Ceremony):</strong> The marriage contract is signed in the presence of elders, with blessings and recitation of verses.<br>
+<strong>Walima (Reception):</strong> The groom’s family hosts a lavish feast, featuring traditional dishes and music.
+</p>
+   </div>
+
+    <div class="wedding-style" id="hindu-wedding">
+        <img src="images1\kerala hindu.jpg" alt="Hindu Wedding">
+        <h2>Traditional Kerala Hindu Wedding</h2><hr>
+<p>
+<strong>Engagement Ceremony (Roka):</strong> Families gather to formalize the relationship, exchange gifts, and begin the wedding journey.<br>
+<strong>Mehendi and Sangeet:</strong> The bride’s hands and feet are decorated with henna, and both families enjoy music and dance, often featuring local folk traditions.<br>
+<strong>Haldi Ceremony:</strong> A turmeric paste is applied to the bride and groom, believed to bring good luck and purify them before the wedding.<br>
+<strong>Main Wedding Rituals:</strong> Ceremonies such as Kanyadaan, Mangal Pheras, and Sindoor Daan are performed, often accompanied by regional songs and blessings.<br>
+<strong>Reception:</strong> The newlyweds are introduced to the community with a grand feast, showcasing the state’s traditional cuisine and performances.
+</p>
+    </div>
+
+    <div class="wedding-style" id="christian-wedding">
+        <img src="images1\christian (18).jpg" alt="Christian Wedding">
+        <h2>Traditional Kerala Christian Wedding</h2><hr>
+<p>
+<strong>Engagement:</strong> The couple exchanges rings in a family gathering, blending religious customs with local traditions.<br>
+<strong>Bridal Shower and Bachelor Party:</strong> Friends and family organize celebrations, incorporating games and rituals unique to the state.<br>
+<strong>Wedding Ceremony in Church:</strong> The ceremony is held in a church, with traditional hymns and blessings from the congregation.<br>
+<strong>Exchange of Vows and Rings:</strong> The couple makes promises and exchanges rings, symbolizing their union.<br>
+<strong>Reception:</strong> The event concludes with a community gathering, featuring regional dishes and music.
+</p>
+    </div>
+
+    <!-- Contact Section -->
+    <div class="contact-section" id="contact">
+        <h2>Contact Us</h2>
+        <p>If you have any questions or would like to learn more about Kerala weddings, feel free to reach out to us.</p>
+        <a href="mailto:info@keralaweddings.com">Email Us</a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Rituals and Revelry - Unveiling Indian Wedding Traditions. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            const slides = document.querySelector('.slides');
+            const totalSlides = slides.children.length;
+            if (index >= totalSlides) currentSlide = 0;
+            else if (index < 0) currentSlide = totalSlides - 1;
+            else currentSlide = index;
+            slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+        }
+    </script>
+</body>
+</html>

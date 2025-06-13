@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delhi Weddings</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #eaf4fc, #d6e9f8);
+            color: #2c3e50;
+            scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+        }
+
+        /* Navbar styling */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #d6e9f8;
+            padding: 15px 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar .logo {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #1a5276;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar ul li {
+            margin: 0 10px;
+        }
+
+        .navbar ul li a {
+            color: #1a5276;
+            text-decoration: none;
+            padding: 10px 15px;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            border-radius: 5px;
+        }
+
+        .navbar ul li a:hover {
+            background-color: #bcdff1;
+            transform: scale(1.1);
+        }
+
+        /* About section styling */
+        .about-section {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: #eaf4fc; /* Light blue */
+            margin: 20px auto;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 800px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .about-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #1a5276;
+        }
+
+        .about-section p {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #2c3e50;
+        }
+
+        /* Slider styling */
+        .slider {
+            position: relative;
+            width: 100%;
+            max-width: 1000px;
+            margin: 20px auto;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            animation: slideIn 1.5s ease-in-out;
+        }
+
+        .slides {
+            display: flex;
+            transition: transform 1s ease-in-out;
+        }
+
+        .slides img, .slides video {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .slider-buttons {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+        .slider-buttons button {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            border-radius: 50%;
+        }
+
+        .slider-buttons button:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        /* Wedding section styling */
+        .wedding-style {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: #d6e9f8; /* Light pastel blue */
+            margin: 20px auto;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 800px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            animation: fadeInUp 1.5s ease-in-out;
+        }
+
+        .wedding-style:nth-child(odd) {
+            background-color: #eaf4fc; /* Light blue */
+        }
+
+        .wedding-style img {
+            width: 200px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .wedding-style h2 {
+            font-size: 2em;
+            margin-bottom: 10px;
+            color: #1a5276;
+        }
+
+        .wedding-style p {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #2c3e50;
+        }
+
+        /* Contact section styling */
+        .contact-section {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: #bcdff1; /* Light pastel blue */
+            margin: 20px auto;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 800px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .contact-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #1a5276;
+        }
+
+        .contact-section p {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #2c3e50;
+        }
+
+        .contact-section a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #1a5276;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .contact-section a:hover {
+            background-color: #154360;
+            transform: scale(1.1);
+        }
+
+        /* Footer styling */
+        footer {
+            background-color: #1a5276;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 30px;
+            font-size: 1em;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-100%);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="logo">Delhi Weddings</div>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#muslim-wedding">Muslim Wedding</a></li>
+            <li><a href="#hindu-wedding">Hindu Wedding</a></li>
+            <li><a href="#christian-wedding">Christian Wedding</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- About Section -->
+    <div class="about-section" id="about">
+<p><strong>Importance of Marriages in Delhi</strong></p>
+<p>
+Marriage holds significant cultural, social, and legal importance in this state. It is considered a sacred bond that unites two individuals and their families, fostering harmony and mutual support. Marriage serves as the foundation for building a family, ensuring the continuation of traditions and values across generations.<br>
+Legally, marriage provides rights and responsibilities to both partners, including inheritance, property ownership, and decision-making in personal matters. It also offers social recognition and respect within the community.<br>
+Furthermore, marriage promotes emotional stability, companionship, and shared responsibilities, contributing to the overall well-being of individuals and society. It is celebrated as a vital institution that strengthens social fabric and nurtures lifelong relationships.
+</p>    </div>
+
+    <!-- Slider -->
+    <div class="slider" id="gallery">
+        <div class="slides">
+            <video src="videos/delhi.mp4" autoplay muted loop playsinline></video>
+            <img src="images1\delhi muslim.jpg" alt="Muslim Wedding">
+            <img src="images1\delhi hindu.jpg" alt="Hindu Wedding">
+            <img src="images1\christian (20).jpg" alt="Christian Wedding">
+        </div>
+        <div class="slider-buttons">
+            <button onclick="prevSlide()">&#10094;</button>
+            <button onclick="nextSlide()">&#10095;</button>
+        </div>
+    </div>
+
+    <!-- Wedding Sections -->
+    <div class="wedding-style" id="muslim-wedding">
+        <img src="images1\delhi muslim.jpg" alt="Muslim Wedding">
+<p><strong>Muslim Wedding</strong></p>
+<p>
+<strong>Istikhara and Imam Zamin:</strong> The process starts with prayers for guidance and blessings, including the Imam Zamin, where the groom’s mother ties a silver coin on the bride’s arm.<br>
+<strong>Mangni (Engagement):</strong> Both families exchange gifts and formally announce the upcoming marriage.<br>
+<strong>Mehendi Ceremony:</strong> The bride’s hands and feet are decorated with henna, and women sing traditional songs to celebrate.<br>
+<strong>Nikah (Wedding Ceremony):</strong> The marriage contract is signed in the presence of witnesses, and the couple formally accepts each other as husband and wife by saying “Qubool Hai.”<br>
+<strong>Walima (Reception):</strong> The wedding festivities end with a grand reception hosted by the groom’s family to celebrate the union.
+</p>
+<hr>    </div>
+
+    <div class="wedding-style" id="hindu-wedding">
+        <img src="images1\delhi hindu.jpg" alt="Hindu Wedding">
+    <p><strong> Hindu Wedding</strong></p>
+<p>
+<strong>Engagement Ceremony (Roka):</strong> The wedding journey begins with the Roka, where both families meet, exchange gifts, and formally agree to the marriage. This event marks the official start of the wedding preparations.<br>
+<strong>Mehendi and Sangeet:</strong> The bride’s hands and feet are adorned with intricate henna designs during the Mehendi. The Sangeet is a lively celebration with music and dance, bringing both families together.<br>
+<strong>Haldi Ceremony:</strong> A paste made from turmeric, sandalwood, and rosewater is applied to the bride and groom at their respective homes. This ritual is believed to purify and bless the couple before the wedding.<br>
+<strong>Main Wedding Rituals:</strong> The core wedding rituals include Kanyadaan (giving away of the bride), Mangal Pheras (circling the sacred fire seven times), and Sindoor Daan (applying vermillion to the bride’s hair parting), symbolizing the couple’s union.<br>
+<strong>Reception:</strong> After the wedding, a reception is held to introduce the newlyweds to extended family and friends, with a grand celebration of food, music, and dance.
+</p>
+<hr>
+    
+</div>
+    <div class="wedding-style" id="christian-wedding">
+        <img src="images1\christian (20).jpg" alt="Christian Wedding">
+<p><strong>Christian Wedding</strong></p>
+<p>
+<strong>Engagement:</strong> The couple exchanges rings in the presence of close family and friends, symbolizing their commitment to each other.<br>
+<strong>Bridal Shower and Bachelor Party:</strong> Separate celebrations are held for the bride and groom, allowing them to enjoy time with friends and family before the wedding.<br>
+<strong>Wedding Ceremony in Church:</strong> The ceremony takes place in a church, where the bride walks down the aisle and joins the groom at the altar. The priest or pastor leads the ceremony.<br>
+<strong>Exchange of Vows and Rings:</strong> The couple makes promises of love and fidelity, then exchanges rings as a symbol of their union.<br>
+<strong>Reception:</strong> The celebrations conclude with a reception, where guests congratulate the couple, enjoy a meal, and participate in music and dancing.
+</p>
+<hr>
+</div>
+    <!-- Contact Section -->
+    <div class="contact-section" id="contact">
+        <h2>Contact Us</h2>
+        <p>If you have any questions or would like to learn more about Delhi weddings, feel free to reach out to us.</p>
+        <a href="mailto:info@delhiweddings.com">Email Us</a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Rituals and Revelry - Unveiling Indian Wedding Traditions. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            const slides = document.querySelector('.slides');
+            const totalSlides = slides.children.length;
+            if (index >= totalSlides) currentSlide = 0;
+            else if (index < 0) currentSlide = totalSlides - 1;
+            else currentSlide = index;
+            slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+        }
+    </script>
+</body>
+</html>

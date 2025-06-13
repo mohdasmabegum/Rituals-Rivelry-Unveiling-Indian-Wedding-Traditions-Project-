@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chhattisgarh Weddings</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #f3f4ed, #d9e4dd);
+            color: #3a3a3a;
+            scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+        }
+
+        /* Navbar styling */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #e6f7f1;
+            padding: 15px 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar .logo {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #2a6f4e;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar ul li {
+            margin: 0 10px;
+        }
+
+        .navbar ul li a {
+            color: #2a6f4e;
+            text-decoration: none;
+            padding: 10px 15px;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            border-radius: 5px;
+        }
+
+        .navbar ul li a:hover {
+            background-color: #cde9df;
+            transform: scale(1.1);
+        }
+
+        /* About section styling */
+        .about-section {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: #f3f4ed; /* Light cream */
+            margin: 20px auto;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 800px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .about-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #2a6f4e;
+        }
+
+        .about-section p {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #3a3a3a;
+        }
+
+        /* Slider styling */
+        .slider {
+            position: relative;
+            width: 100%;
+            max-width: 1000px;
+            margin: 20px auto;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            animation: slideIn 1.5s ease-in-out;
+        }
+
+        .slides {
+            display: flex;
+            transition: transform 1s ease-in-out;
+        }
+
+        .slides img, .slides video {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .slider-buttons {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+        .slider-buttons button {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            border-radius: 50%;
+        }
+
+        .slider-buttons button:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        /* Wedding section styling */
+        .wedding-style {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: #e6f7f1; /* Light green */
+            margin: 20px auto;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 800px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            animation: fadeInUp 1.5s ease-in-out;
+        }
+
+        .wedding-style:nth-child(odd) {
+            background-color: #f3f4ed; /* Light cream */
+        }
+
+        .wedding-style img {
+            width: 200px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .wedding-style h2 {
+            font-size: 2em;
+            margin-bottom: 10px;
+            color: #2a6f4e;
+        }
+
+        .wedding-style p {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #3a3a3a;
+        }
+
+        /* Contact section styling */
+        .contact-section {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: #d9e4dd; /* Light pastel green */
+            margin: 20px auto;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 800px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .contact-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #2a6f4e;
+        }
+
+        .contact-section p {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #3a3a3a;
+        }
+
+        .contact-section a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #2a6f4e;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .contact-section a:hover {
+            background-color: #1f5a3d;
+            transform: scale(1.1);
+        }
+
+        /* Footer styling */
+        footer {
+            background-color: #2a6f4e;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 30px;
+            font-size: 1em;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-100%);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="logo">Chhattisgarh Weddings</div>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#muslim-wedding">Muslim Wedding</a></li>
+            <li><a href="#hindu-wedding">Hindu Wedding</a></li>
+            <li><a href="#christian-wedding">Christian Wedding</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- About Section -->
+    <div class="about-section" id="about">
+<h2>About Chhattisgarh Weddings</h2>
+    <hr>
+    <p>Chhattisgarh, known for its rich tribal heritage and vibrant culture, celebrates weddings with unique traditions and deep-rooted rituals.</p>
+    <p><strong>Importance of Marriages in Chhattisgarh:</strong> Weddings here are not just a union of two individuals, but a joyful gathering of families and communities, reflecting the state’s values of togetherness and respect for tradition.</p>
+    <p>Chhattisgarhi weddings are marked by colorful ceremonies, folk music, and dance, with rituals like Haldi, Mandap Puja, and Saptapadi (seven steps around the sacred fire) forming the core of Hindu weddings.</p>
+    <p>Muslim and Christian weddings in the state also blend their religious customs with local flavors, making every celebration unique.</p>
+    <p>Traditional attire, delicious regional cuisine, and the involvement of the entire community make Chhattisgarh weddings a memorable and culturally rich experience.</p>
+</div>
+    <!-- Slider -->
+    <div class="slider" id="gallery">
+        <div class="slides">
+            <video src="videos/chhatishgarh.mp4" autoplay muted loop playsinline></video>
+            <img src="images1\chattis muslim slider.jpg" alt="Muslim Wedding">
+            <img src="images1\chattisgarh hindu slider.jpg" alt="Hindu Wedding">
+            <img src="images1\chattis chr slider.jpg" alt="Christian Wedding">
+        </div>
+        <div class="slider-buttons">
+            <button onclick="prevSlide()">&#10094;</button>
+            <button onclick="nextSlide()">&#10095;</button>
+        </div>
+    </div>
+
+    <!-- Wedding Sections -->
+    <div class="wedding-style" id="muslim-wedding">
+        <img src="images1\chattis muslim.jpg" alt="Muslim Wedding">
+ <h2>Traditional Chhattisgarh Muslim Wedding</h2>
+    <hr>
+    <p>Chhattisgarh Muslim weddings are a vibrant blend of Islamic rituals and local customs.</p>
+    <p><strong>Step-by-Step Key Features:</strong></p>
+    <p><strong>1. Istikhara:</strong> Families seek blessings and guidance from Allah before proceeding.</p>
+    <p><strong>2. Mangni (Engagement):</strong> The formal engagement ceremony where families exchange gifts and sweets.</p>
+    <p><strong>3. Manjha:</strong> The bride is applied turmeric paste for beauty and blessings.</p>
+    <p><strong>4. Nikah (Marriage Contract):</strong> The main wedding ceremony, conducted by a Qazi, where the marriage contract is signed in the presence of witnesses.</p>
+    <p><strong>5. Mehr:</strong> The groom offers Mehr (a mandatory gift) to the bride as a symbol of respect and commitment.</p>
+    <p><strong>6. Walima (Reception):</strong> A grand feast hosted by the groom’s family, featuring traditional dishes and music.</p>
+    <p><strong>7. Rukhsati:</strong> The bride bids farewell to her family and leaves for her new home.</p>
+</div>
+    <div class="wedding-style" id="hindu-wedding">
+        <img src="images1\chattisgarh hindu.jpg" alt="Hindu Wedding">
+<h2>Traditional Chhattisgarh Hindu Wedding</h2>
+    <hr>
+    <p>Hindu weddings in Chhattisgarh are rich in rituals, symbolism, and community participation.</p>
+    <p><strong>Step-by-Step Key Features:</strong></p>
+    <p><strong>1. Haldi Ceremony:</strong> Turmeric paste is applied to the bride and groom for purification and blessings.</p>
+    <p><strong>2. Mandap Puja:</strong> The wedding canopy is blessed and decorated before the main rituals begin.</p>
+    <p><strong>3. Kanyadaan:</strong> The bride’s parents give away their daughter to the groom, symbolizing trust and acceptance.</p>
+    <p><strong>4. Saptapadi (Seven Steps):</strong> The couple circles the sacred fire seven times, taking vows for their married life.</p>
+    <p><strong>5. Mangalsutra Dharanam:</strong> The groom ties the sacred Mangalsutra around the bride’s neck, marking her marital status.</p>
+    <p><strong>6. Sindoor Daan:</strong> The groom applies sindoor (vermilion) to the bride’s hair parting.</p>
+    <p><strong>7. Festive Gathering:</strong> The wedding is celebrated with colorful attire, music, dance, and a feast, blending local tribal customs with Hindu traditions.</p>
+    <p><strong>8. Vidaai:</strong> The emotional farewell as the bride leaves her parental home.</p>
+    <p><strong>9. Grihapravesh:</strong> The bride is welcomed into her new home with rituals and blessings.</p>
+</div>
+    <div class="wedding-style" id="christian-wedding">
+        <img src="images1\chattis chr.avif" alt="Christian Wedding">
+ <h2>Traditional Chhattisgarh Christian Wedding</h2>
+    <hr>
+    <p>Christian weddings in Chhattisgarh are elegant, spiritual, and filled with joy.</p>
+    <p><strong>Step-by-Step Key Features:</strong></p>
+    <p><strong>1. Engagement:</strong> The couple exchanges rings in the presence of family and friends.</p>
+    <p><strong>2. Bridal Shower:</strong> The bride is blessed and celebrated by her close ones.</p>
+    <p><strong>3. Church Ceremony:</strong> The wedding is solemnized in a church, with prayers, hymns, and exchange of vows.</p>
+    <p><strong>4. Blessings and Rings:</strong> The priest blesses the couple and they exchange wedding rings.</p>
+    <p><strong>5. Signing the Register:</strong> The marriage is made official by signing the church register.</p>
+    <p><strong>6. Reception:</strong> A lively celebration with music, dance, and a festive meal.</p>
+    <p><strong>7. Community Gathering:</strong> Friends and family come together to bless the couple and enjoy the festivities.</p>
+</div>
+    <!-- Contact Section -->
+    <div class="contact-section" id="contact">
+        <h2>Contact Us</h2>
+        <p>If you have any questions or would like to learn more about Chhattisgarh weddings, feel free to reach out to us.</p>
+        <a href="mailto:info@chhattisgarhweddings.com">Email Us</a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Rituals and Revelry - Unveiling Indian Wedding Traditions. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            const slides = document.querySelector('.slides');
+            const totalSlides = slides.children.length;
+            if (index >= totalSlides) currentSlide = 0;
+            else if (index < 0) currentSlide = totalSlides - 1;
+            else currentSlide = index;
+            slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+        }
+    </script>
+</body>
+</html>
